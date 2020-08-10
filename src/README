@@ -1,0 +1,48 @@
+This directory contains the SimSearch system that searches for SEIR
+models that describe outbreaks of contagious diseases.  The following
+files should be present:
+
+  CreateSimulatedOutbreak.java
+  Data.java
+  Matrix.java
+  NY_Confirmed_COVID19_Cumulative.data
+  Parameters.java
+  RunPRAM.sh
+  Score.java
+  seir.py
+  SimSearch.java
+  SimulatedOutbreaks.java
+
+To run:
+
+  1) PRAM must be installed in the directory .../PRAM/
+  2) The file seir.py must be copied into the directory .../PRAM/sim/seir/
+  3) The file RunPRAM.sh must be edited to reflect the location of PRAM
+  4) Compile with "javac SimSearch.java"
+
+SimSearch is run with the following parameters:
+
+  dataFile  --  Location of data file.
+  cumulative/absolute -- "cumulative" if dataFile contains cumulative numbers otherwise "absolute"
+  population  --  Population to model.
+  theta  --  Infection to confirmation probability.
+  numberOfSimulations  -- Number of simulations.
+  forecastDay  -- Forecast day where day 0 is the first day in dataFile.
+  numberOfRestarts  -- Number of random restarts before terminating algorithm.
+  interval -- Interval between samples.
+
+For instance:
+
+  java SimSearch NY_Confirmed_COVID19_Cumulative.data cumulative 20000000 0.1 10  98 10 1
+
+runs SimSearch:
+
+  on laboratory-confirmed COVID-19 cases from New York State,
+  the data is recorded in cumulative fashion in the file,
+  the population of New York State is approximately 20000000,
+  the estimated infection-confirmation ratio is 10/1,
+  SimSearch constructs 10 simulations at each step of its search,
+  models are constructed using data up to day 98,
+  SimSearch will perform 10 random restarts before terminating the search,
+  and data from every day is used.
+
