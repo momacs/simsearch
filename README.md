@@ -5,4 +5,4 @@ A method that automatically tunes a simulator model to predict data well.  The a
 
 ## Setup
 
-Setup and run instructions can be found in [README](https://github.com/momacs/simsearch/blob/master/src/README.py) file.
+Setup and run instructions can be found in [README](https://github.com/momacs/simsearch/blob/master/src/README) file.
